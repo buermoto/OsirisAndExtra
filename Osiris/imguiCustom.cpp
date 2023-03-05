@@ -52,26 +52,26 @@ void ImGuiCustom::colorPicker(const char* name, float color[3], float* alpha, bo
             ImGui::SameLine();
             if (ImGui::BeginChild("##child", { 150.0f, 0.0f })) {
                 if (rainbow)
-                    ImGui::Checkbox("Rainbow", rainbow);
+                    ImGui::Checkbox("渐变色", rainbow);
                 ImGui::PushItemWidth(150.0f);
                 if (rainbowSpeed)
-                    ImGui::DragFloat("##speed", rainbowSpeed, 0.1f, -100.0f, 100.0f, "Speed %.1f");
+                    ImGui::DragFloat("##speed", rainbowSpeed, 0.1f, -100.0f, 100.0f, "速度 %.1f");
 
                 if (rounding || thickness)
                     ImGui::Separator();
 
                 if (rounding) {
-                    ImGui::DragFloat("##rounding", rounding, 0.1f, 0.0f, 100.0f, "Corner %.1f");
+                    ImGui::DragFloat("##rounding", rounding, 0.1f, 0.0f, 100.0f, "角 %.1f");
                     *rounding = std::max(*rounding, 0.0f);
                 }
 
                 if (thickness) {
-                    ImGui::DragFloat("##thickness", thickness, 0.1f, 1.0f, 10.0f, "Thick %.2f");
+                    ImGui::DragFloat("##thickness", thickness, 0.1f, 1.0f, 10.0f, "厚度 %.2f");
                     *thickness = std::max(*thickness, 1.0f);
                 }
 
                 if (outline)
-                    ImGui::Checkbox("Outline", outline);
+                    ImGui::Checkbox("概述", outline);
 
                 ImGui::PopItemWidth();
             }
@@ -359,13 +359,13 @@ void ImGui::hotkey2(const char* label, KeyBind& key, float samelineOffset, const
         if (key.keyMode == Always)
         {
 	        PushStyleColor(ImGuiCol_Text, GetColorU32(ImGuiCol_TextDisabled));
-	        ButtonEx("On", {}, ImGuiButtonFlags_Disabled);
+	        ButtonEx("开", {}, ImGuiButtonFlags_Disabled);
 	        PopStyleColor();
         }
         else if (key.keyMode == Off)
         {
 	        PushStyleColor(ImGuiCol_Text, GetColorU32(ImGuiCol_TextDisabled));
-	        ButtonEx("Off", {}, ImGuiButtonFlags_Disabled);
+	        ButtonEx("关", {}, ImGuiButtonFlags_Disabled);
 	        PopStyleColor();
         }
         else if (key.isSet())
@@ -375,40 +375,40 @@ void ImGui::hotkey2(const char* label, KeyBind& key, float samelineOffset, const
         }
         else
         {
-            if (Button("Bind"))
+            if (Button("绑定"))
 	            SetActiveID(id, GetCurrentWindow());
         }
 
         if (BeginPopup("##mode", ImGuiWindowFlags_AlwaysUseWindowPadding))
         {
             bool selected = key.keyMode == Off;
-            Selectable("Off", &selected);
+            Selectable("关", &selected);
             if (selected)
                 key.keyMode = Off;
 
             selected = key.keyMode == Always;
-            Selectable("Always", &selected);
+            Selectable("总是", &selected);
             if (selected)
                 key.keyMode = Always;
 
             selected = key.keyMode == Hold;
-            Selectable("Hold", &selected);
+            Selectable("按住", &selected);
             if (selected)
                 key.keyMode = Hold;
 
             selected = key.keyMode == Toggle;
-            Selectable("Toggle", &selected);
+            Selectable("切换", &selected);
             if (selected)
                 key.keyMode = Toggle;
 
-            if (Selectable("Unset"))
+            if (Selectable("未设置"))
                 key.reset();
 
             EndPopup();
         }
         else if (IsItemHovered())
         {
-	        SetTooltip("Right click for options");
+	        SetTooltip("右键单击可查看选项");
 
             if (GetIO().MouseClicked[1])
 	            OpenPopup("##mode");
