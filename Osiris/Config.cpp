@@ -56,7 +56,7 @@ Config::Config() noexcept
         CoTaskMemFree(pathToDocuments);
     }
 
-    path /= "Osiris";
+    path /= "BSK";
     listConfigs();
     misc.clanTag[0] = '\0';
     misc.name[0] = '\0';
@@ -247,7 +247,7 @@ static void from_json(const json& j, Config::Legitbot& a)
     read(j, "Min damage", a.minDamage);
     read(j, "Killshot", a.killshot);
     read(j, "Between shots", a.betweenShots);
-}
+    }
 
 static void from_json(const json& j, Config::RecoilControlSystem& r)
 {
@@ -997,7 +997,7 @@ static void to_json(json& j, const Config::Legitbot& o, const Config::Legitbot& 
     WRITE("Min damage", minDamage);
     WRITE("Killshot", killshot);
     WRITE("Between shots", betweenShots);
-}
+    }
 
 static void to_json(json& j, const Config::RecoilControlSystem& o, const Config::RecoilControlSystem& dummy = {})
 {
@@ -1184,7 +1184,7 @@ static void to_json(json& j, const PurchaseList& o, const PurchaseList& dummy = 
     WRITE("No Title Bar", noTitleBar);
     WRITE("Mode", mode);
 
-    if (const auto window = ImGui::FindWindowByName("Purchases")) {
+    if (const auto window = ImGui::FindWindowByName("购买列表")) {
         j["Pos"] = window->Pos;
     }
 }
@@ -1194,7 +1194,7 @@ static void to_json(json& j, const Config::Misc::SpectatorList& o, const Config:
     WRITE("Enabled", enabled);
     WRITE("No Title Bar", noTitleBar);
 
-    if (const auto window = ImGui::FindWindowByName("Spectator list")) {
+    if (const auto window = ImGui::FindWindowByName("观战者列表")) {
         j["Pos"] = window->Pos;
     }
 }
@@ -1204,7 +1204,7 @@ static void to_json(json& j, const Config::Misc::KeyBindList& o, const Config::M
     WRITE("Enabled", enabled);
     WRITE("No Title Bar", noTitleBar);
 
-    if (const auto window = ImGui::FindWindowByName("Keybind list")) {
+    if (const auto window = ImGui::FindWindowByName("按键绑定列表")) {
         j["Pos"] = window->Pos;
     }
 }
@@ -1219,7 +1219,7 @@ static void to_json(json& j, const Config::Misc::PlayerList& o, const Config::Mi
     WRITE("Health", health);
     WRITE("Armor", armor);
 
-    if (const auto window = ImGui::FindWindowByName("Player List")) {
+    if (const auto window = ImGui::FindWindowByName("玩家列表")) {
         j["Pos"] = window->Pos;
     }
 }
