@@ -61,8 +61,8 @@ public:
         int minDamageOverride{ 1 };
     };
     std::array<Ragebot, 40> ragebot;
-    KeyBind ragebotKey{ std::string("ragebot") };
-    KeyBind minDamageOverrideKey{ std::string("min damage override"), Off};
+    KeyBind ragebotKey{ std::string("暴力模式") };
+    KeyBind minDamageOverrideKey{ std::string("最小伤害覆盖"), Off};
 
     struct Fakelag {
         bool enabled = false;
@@ -92,11 +92,11 @@ public:
         bool rollAlt{ false };
     };
     std::array<RageAntiAimConfig, 7> rageAntiAim;
-    KeyBind manualForward{ std::string("manual forward"), Off },
-        manualBackward{ std::string("manual backward"), Off },
-        manualRight{ std::string("manual right"), Off },
-        manualLeft{ std::string("manual left"), Off };
-    KeyBind autoDirection{ std::string("auto direction"), Off };
+    KeyBind manualForward{ std::string("身体朝向前"), Off },
+        manualBackward{ std::string("身体朝向后"), Off },
+        manualRight{ std::string("身体朝向右"), Off },
+        manualLeft{ std::string("身体朝向左"), Off };
+    KeyBind autoDirection{ std::string("自动朝向改变"), Off };
 
     struct FakeAngle {
         bool enabled = false;
@@ -106,11 +106,11 @@ public:
         int lbyMode = 0; // Normal, Opposite, sway,
     };
     std::array<FakeAngle, 7> fakeAngle;
-    KeyBind invert{ std::string("fake angle invert") };
+    KeyBind invert{ std::string("假角度反转") };
 
     struct Tickbase {
-        KeyBind doubletap{ std::string("doubletap"), Off};
-        KeyBind hideshots{ std::string("hideshots"), Off};
+        KeyBind doubletap{ std::string("双击（DT）"), Off};
+        KeyBind hideshots{ std::string("藏头射击"), Off};
         bool teleport{ false };
         bool onshotFl{ false };
         int onshotFlAmount{ 1 };
@@ -124,7 +124,7 @@ public:
     struct LegitAntiAimConfig {
         bool enabled = false;
         bool extend = false;
-        KeyBind invert{ std::string("legit aa invert") };
+        KeyBind invert{ std::string("演技模式反自瞄") };
     } legitAntiAim;
 
     bool disableInFreezetime{ true };
@@ -148,7 +148,7 @@ public:
         bool betweenShots{ true };
     };
     std::array<Legitbot, 40> legitbot;
-    KeyBind legitbotKey{ std::string("legitbot") };
+    KeyBind legitbotKey{ std::string("演技模式") };
     ColorToggle legitbotFov{ 1.0f, 1.0f, 1.0f, 1.0f };
 
     struct RecoilControlSystem {
@@ -158,7 +158,7 @@ public:
         float horizontal{ 1.0f };
         float vertical{ 1.0f };
     } recoilControlSystem;
-
+        
     struct Triggerbot {
         bool enabled = false;
         bool friendlyFire = false;
@@ -172,7 +172,7 @@ public:
         int minDamage = 1;
     };
     std::array<Triggerbot, 40> triggerbot;
-    KeyBind triggerbotKey{ std::string("triggerbot") };
+    KeyBind triggerbotKey{ std::string("自动扳机") };
 
     struct Backtrack {
         bool enabled = false;
@@ -197,7 +197,7 @@ public:
     };
 
     std::unordered_map<std::string, Chams> chams;
-    KeyBind chamsKey{ std::string("chams") };
+    KeyBind chamsKey{ std::string("上色功能") };
 
     struct GlowItem : Color4 {
         bool enabled = false;
@@ -211,11 +211,11 @@ public:
 
     std::unordered_map<std::string, PlayerGlow> playerGlow;
     std::unordered_map<std::string, GlowItem> glow;
-    KeyBind glowKey{ std::string("glow") };
+    KeyBind glowKey{ std::string("发光功能") };
 
 
     struct StreamProofESP {
-        KeyBind key{ std::string("esp") };
+        KeyBind key{ std::string("透视功能") };
 
         std::unordered_map<std::string, Player> allies;
         std::unordered_map<std::string, Player> enemies;
@@ -265,12 +265,12 @@ public:
         } shadowsChanger;
         bool fullBright{ false };
         bool zoom{ false };
-        KeyBind zoomKey{ std::string("zoom") };
+        KeyBind zoomKey{ std::string("视野放大") };
         bool thirdperson{ false };
-        KeyBind thirdpersonKey{ std::string("thirdperson") };
+        KeyBind thirdpersonKey{ std::string("第三人称") };
         int thirdpersonDistance{ 0 };
         bool freeCam{ false };
-        KeyBind freeCamKey{ std::string("freecam") };
+        KeyBind freeCamKey{ std::string("灵魂出窍") };
         int freeCamSpeed{ 2 };
         bool keepFov{ false };
         int fov{ 0 };
@@ -368,27 +368,27 @@ public:
         bool moonwalk{ false };
         bool leg_break{ false };
         bool blockBot{ false };
-        KeyBind blockBotKey{ std::string("block bot") };
+        KeyBind blockBotKey{ std::string("块机器人") };
         bool edgeJump{ false };
-        KeyBind edgeJumpKey{ std::string("edgejump") };
+        KeyBind edgeJumpKey{ std::string("边缘跳跃") };
         bool miniJump{ false };
         int miniJumpCrouchLock{ 0 };
-        KeyBind miniJumpKey{ std::string("mini jump") };
+        KeyBind miniJumpKey{ std::string("自动蹲跳") };
         bool jumpBug{ false };
-        KeyBind jumpBugKey{ std::string("jump bug") };
+        KeyBind jumpBugKey{ std::string("跳跃Bug") };
         bool edgeBug{ false };
         int edgeBugPredAmnt{ 20 };
-        KeyBind edgeBugKey{ std::string("edge bug") };
+        KeyBind edgeBugKey{ std::string("边缘Bug") };
         bool autoPixelSurf{ false };
         int autoPixelSurfPredAmnt{ 2 };
-        KeyBind autoPixelSurfKey{ std::string("auto pixel surf") };
+        KeyBind autoPixelSurfKey{ std::string("自动像素冲浪") };
         bool slowwalk{ false };
         int slowwalkAmnt{ 0 };
-        KeyBind slowwalkKey{ std::string("slowwalk") };
+        KeyBind slowwalkKey{ std::string("慢走") };
         bool fakeduck{ false };
-        KeyBind fakeduckKey{ std::string("fakeduck") };
+        KeyBind fakeduckKey{ std::string("假蹲") };
         ColorToggle autoPeek{ 1.0f, 1.0f, 1.0f, 1.0f };
-        KeyBind autoPeekKey{ std::string("autopeek") };
+        KeyBind autoPeekKey{ std::string("自动Peek") };
         bool autoPistol{ false };
         bool autoReload{ false };
         bool autoAccept{ false };
@@ -451,11 +451,11 @@ public:
         };
         Watermark watermark;
         float aspectratio{ 0 };
-        std::string killMessageString{ "1" };
+        std::string killMessageString{ "必胜客官方更新通知群:717307553" };
         ColorToggle3 bombTimer{ 0.3f, 0.1f, 0.3f };
         ColorToggle3 hurtIndicator{ 0.0f, 0.8f, 0.7f };
         ColorToggle yawIndicator{ 0.47f, 0.32f, 0.66f, 0.8f };
-        KeyBind prepareRevolverKey{ std::string("prepare revolver") };
+        KeyBind prepareRevolverKey{ std::string("自动捏左轮") };
         int hitSound{ 0 };
         int quickHealthshotKey{ 0 };
         float maxAngleDelta{ 255.0f };
