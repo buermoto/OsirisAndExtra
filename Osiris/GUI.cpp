@@ -317,14 +317,13 @@ void GUI::renderLegitbotWindow() noexcept
     ImGui::SliderInt("最小伤害", &config->legitbot[currentWeapon].minDamage, 0, 101, "%d");
     config->legitbot[currentWeapon].minDamage = std::clamp(config->legitbot[currentWeapon].minDamage, 0, 250);
     ImGui::Checkbox("一击必杀", &config->legitbot[currentWeapon].killshot);
-    config->legitbot[currentWeapon].shotsFired = std::clamp(config->legitbot[currentWeapon].shotsFired, 0, 150);
     ImGui::Checkbox("允许开枪间隙急停", &config->legitbot[currentWeapon].betweenShots);
     ImGui::Checkbox("自动压枪", &config->recoilControlSystem.enabled);
     ImGui::SameLine();
     ImGui::Checkbox("静默压枪", &config->recoilControlSystem.silent);
     ImGui::SliderInt("压枪延迟", &config->recoilControlSystem.shotsFired, 0, 150, "%d");
     ImGui::SliderFloat("最大压枪水平误差", &config->recoilControlSystem.horizontal, 0.0f, 1.0f, "%.5f");
-    ImGui::SliderFloat("最大压枪垂直误差", &config->recoilControlSystem.vertical, 0.0f, 1.0f, "%.5f");
+    ImGui::SliderFloat("最大压枪水平误差", &config->recoilControlSystem.vertical, 0.0f, 1.0f, "%.5f");
     ImGui::Columns(1);
 }
 
