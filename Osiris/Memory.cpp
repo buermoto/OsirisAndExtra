@@ -74,7 +74,7 @@ static std::uintptr_t findPattern(const char* moduleName, std::string_view patte
     }
 
     if(reportNotFound)
-        MessageBoxA(NULL, ("Failed to find pattern #" + std::to_string(id) + '!').c_str(), "Osiris", MB_OK | MB_ICONWARNING);
+        MessageBoxA(NULL, ("找不到模式 #" + std::to_string(id) + '!').c_str(), "BSK", MB_OK | MB_ICONWARNING);
     return 0;
 }
 
