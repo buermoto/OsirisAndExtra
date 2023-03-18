@@ -1846,11 +1846,11 @@ void Misc::drawBombTimer() noexcept
 
         if (health <= (truncf(finalBombDamage * 10) / 10)) {
             ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(255, 0, 0, 255));
-            ImGui::textUnformattedCentered("Lethal");
+            ImGui::textUnformattedCentered("会被炸死");
             ImGui::PopStyleColor();
         }
         else {
-            std::ostringstream text; text << "Damage: " << std::clamp(displayBombDamage, 0, health - 1);
+            std::ostringstream text; text << "爆炸伤害: " << std::clamp(displayBombDamage, 0, health - 1);
             const auto color = Helpers::healthColor(std::clamp(1.f - (finalBombDamage / static_cast<float>(health)), 0.0f, 1.0f));
             ImGui::PushStyleColor(ImGuiCol_Text, color);
             ImGui::textUnformattedCentered(text.str().c_str());
