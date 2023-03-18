@@ -21,29 +21,29 @@ namespace AntiAim
 
     inline const char* moving_flag_text[]
     {
-        "Freestanding",
-        "Moving",
-        "Jumping",
-        "Ducking",
-        "Duck-jumping",
-        "Slow-walking",
-        "Fake-ducking"
+        "空闲冷却中",
+        "移动中",
+        "跳跃中",
+        "下蹲中",
+        "蹲跳中",
+        "慢走中",
+        "假蹲中"
     };
 
     inline const char* peek_mode_text[]
     {
-        "Off",
-        "Peek Real",
-        "Peek Fake",
-        "Jitter",
-        "Switch"
+        "无",
+        "Peek真身",
+        "Peek假身",
+        "随机",
+        "转换"
     };
 
     inline const char* lby_mode_text[]
     {
-        "Normal",
-        "Opposite",
-        "Sway"
+        "正常",
+        "逆向（静态）",
+        "摇摆（动态）"
     };
 
     void rage(UserCmd* cmd, const Vector& previousViewAngles, const Vector& currentViewAngles, bool& sendPacket) noexcept;
